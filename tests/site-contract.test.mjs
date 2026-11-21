@@ -36,3 +36,10 @@ test('public authored content contains no prohibited service promises', () => {
     assert.doesNotMatch(content, prohibited, `${file} contains a prohibited promise`)
   }
 })
+
+test('public product pages consume tenant-scoped backend data', () => {
+  const data = readFileSync(new URL('lib/public-products.ts', root), 'utf8')
+  assert.match(data, /NEXT_PUBLIC_TENANT_ID/)
+  assert.match(data, /tenant_id=eq\./)
+  assert.match(data, /cache\s*:\s*['"]no-store['"]/)
+})

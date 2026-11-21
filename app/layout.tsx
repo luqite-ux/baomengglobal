@@ -41,16 +41,17 @@ export const viewport: Viewport = {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const organization = {
+  const organization = [{
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${site.url}/#organization`,
     name: site.name,
     url: site.url,
     logo: `${site.url}${site.logo.src}`,
     email: site.email,
     telephone: site.phoneDisplay,
     address: { '@type': 'PostalAddress', streetAddress: site.address, addressCountry: 'CN' },
-  }
+  }, { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${site.url}/#website`, url: site.url, name: site.shortName, publisher: { '@id': `${site.url}/#organization` } }]
   return (
     <html lang={defaultLocale} className={`${sans.variable} ${mono.variable}`}>
       <body>
