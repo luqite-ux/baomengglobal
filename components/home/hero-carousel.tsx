@@ -166,12 +166,12 @@ export function HeroCarousel() {
                   <Heading className="display mt-4 break-words text-[2.25rem] text-white sm:text-5xl lg:text-[4rem]">
                     {slide.title}
                   </Heading>
-                  <p className="mt-5 max-w-lg text-base leading-relaxed text-white/90 lg:text-lg">{slide.body}</p>
-                  <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <p className="mt-5 w-full max-w-full break-words text-base leading-relaxed text-white/90 lg:max-w-lg lg:text-lg">{slide.body}</p>
+                  <div className="mt-7 flex w-full max-w-full flex-col gap-3 sm:flex-row">
                     <Link
                       href={slide.primary.href}
                       tabIndex={active ? 0 : -1}
-                      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-white px-6 text-sm font-semibold text-brand-deep transition-colors hover:bg-accent"
+                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-white px-6 text-sm font-semibold text-brand-deep transition-colors hover:bg-accent sm:w-auto"
                     >
                       {slide.primary.label}
                       <ArrowRight className="size-4" aria-hidden />
@@ -179,7 +179,7 @@ export function HeroCarousel() {
                     <Link
                       href={slide.secondary.href}
                       tabIndex={active ? 0 : -1}
-                      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/60 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                      className="inline-flex min-h-12 w-full items-center justify-center rounded-md border border-white/60 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
                     >
                       {slide.secondary.label}
                     </Link>
