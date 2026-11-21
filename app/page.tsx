@@ -8,6 +8,8 @@ import { getApplications, getProcess } from '@/lib/content'
 import { getProducts } from '@/lib/products'
 import { media, site } from '@/lib/site'
 
+export const metadata={alternates:{canonical:'/'}}
+
 export default function HomePage() {
   const products = getProducts(), applications = getApplications(), process = getProcess()
   return <><HeroCarousel />

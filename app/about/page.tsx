@@ -1,5 +1,5 @@
 import Image from 'next/image'
 import { PageHero } from '@/components/site/page-hero'
 import { media, site } from '@/lib/site'
-export const metadata={title:'About'}
+export const metadata={title:'About',alternates:{canonical:'/about'}}
 export default function AboutPage(){return <><PageHero eyebrow="About Baomeng" title="Metal parts manufacturing from Taicang, China." text={`${site.name} was founded in ${site.founded} and operates from Fuqiao Town, Taicang.`} action={{href:'/contact',label:'Contact the factory'}}/><section className="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-2 lg:px-8"><div><p className="eyebrow">Company profile</p><h2 className="display mt-5 text-4xl">Focused on fasteners and precision-machined components.</h2><p className="mt-6 text-lg leading-8 text-muted-foreground">The product scope covers hex flange self-tapping self-locking bolts, rivets, ball studs, shafts, flanges and couplings. Custom parts are reviewed from customer drawings or physical samples.</p><p className="mt-4 leading-8 text-muted-foreground">The company states a {site.area} production area and monthly capacity of {site.monthlyCapacity}.</p></div><div className="relative min-h-96 overflow-hidden rounded-lg"><Image src={media.factoryEntrance} alt="Entrance to Taicang Baomeng Metal Products" fill className="object-cover"/></div></section></>}
