@@ -43,3 +43,15 @@ test('public product pages consume tenant-scoped backend data', () => {
   assert.match(data, /tenant_id=eq\./)
   assert.match(data, /cache\s*:\s*['"]no-store['"]/)
 })
+
+test('homepage quality FAQ uses neutral order-specific facts without service promises', () => {
+  const data = JSON.parse(readFileSync(new URL('../lib/home-quality-faq.json', import.meta.url), 'utf8'))
+  assert.equal(data.items.length, 3)
+  assert.deepEqual(data.items.map((item) => item.question), [
+    'What should I include in an RFQ?',
+    'Can you work from a drawing or sample?',
+    'How is inspection scope confirmed?',
+  ])
+  assert.doesNotMatch(JSON.stringify(data), /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/iu)
+  assert.match(data.summary, /order requirements/i)
+})

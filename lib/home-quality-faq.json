@@ -1,0 +1,17 @@
+{
+  "summary": "Inspection scope and technical records are confirmed against the drawing and order requirements before production.",
+  "items": [
+    {
+      "question": "What should I include in an RFQ?",
+      "answer": "Share the drawing or sample, material, quantity, critical dimensions, finish and any inspection requirements that apply to the order."
+    },
+    {
+      "question": "Can you work from a drawing or sample?",
+      "answer": "Yes. The product scope supports drawing-led and sample-led review for non-standard dimensions and process requirements."
+    },
+    {
+      "question": "How is inspection scope confirmed?",
+      "answer": "Inspection items and any requested technical records are reviewed against the part requirements and confirmed for the specific order."
+    }
+  ]
+}
