@@ -55,3 +55,8 @@ test('homepage quality FAQ uses neutral order-specific facts without service pro
   assert.doesNotMatch(JSON.stringify(data), /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/iu)
   assert.match(data.summary, /order requirements/i)
 })
+
+test('indexable pages opt into large image previews for search results', () => {
+  const layout = readFileSync(new URL('../app/layout.tsx', import.meta.url), 'utf8')
+  assert.match(layout, /['"]max-image-preview['"]:\s*['"]large['"]/)
+})

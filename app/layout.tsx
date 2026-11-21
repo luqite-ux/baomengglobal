@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   description:
     'Taicang Baomeng Metal Products Co., Ltd. manufactures metal fasteners, precision-machined components and made-to-drawing non-standard metal parts. Send a drawing or sample to request a quote.',
   applicationName: site.shortName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
     title: `${site.shortName} | Fasteners & Precision-Machined Parts`,
     description:
