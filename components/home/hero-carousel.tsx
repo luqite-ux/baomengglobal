@@ -151,7 +151,7 @@ export function HeroCarousel() {
                 />
               </div>
 
-              <div className="relative z-10 mx-auto w-full min-w-0 max-w-[88rem] px-5 pb-4 pt-6 lg:flex lg:h-full lg:min-h-[inherit] lg:items-center lg:px-10 lg:pb-20 lg:pt-0">
+              <div className="relative z-10 mx-auto box-border w-screen min-w-0 max-w-[100vw] px-5 pb-4 pt-6 lg:flex lg:h-full lg:min-h-[inherit] lg:w-full lg:max-w-[88rem] lg:items-center lg:px-10 lg:pb-20 lg:pt-0">
                 <div
                   key={active ? `on-${i}` : `off-${i}`}
                   className={cn(
