@@ -94,7 +94,7 @@ export function HeroCarousel() {
     <section
       aria-roledescription="carousel"
       aria-label="Featured manufacturing highlights"
-      className="relative isolate bg-brand-deep text-primary-foreground"
+      className="relative isolate w-full min-w-0 overflow-hidden bg-brand-deep text-primary-foreground"
       onKeyDown={onKeyDown}
       onMouseEnter={() => setHeld(true)}
       onMouseLeave={() => setHeld(false)}
@@ -110,7 +110,7 @@ export function HeroCarousel() {
         if (Math.abs(dx) > 48) go(index + (dx < 0 ? 1 : -1))
       }}
     >
-      <div className="grid touch-pan-y" aria-live={playing ? 'off' : 'polite'}>
+      <div className="grid min-w-0 touch-pan-y" aria-live={playing ? 'off' : 'polite'}>
         {slides.map((slide, i) => {
           const active = i === index
           const Heading = i === 0 ? 'h1' : 'h2'
@@ -122,7 +122,7 @@ export function HeroCarousel() {
               aria-label={`${i + 1} of ${slides.length}`}
               aria-hidden={!active}
               className={cn(
-                'col-start-1 row-start-1 flex flex-col transition-[opacity,visibility] duration-500 lg:relative lg:block lg:min-h-[clamp(560px,41vw,720px)]',
+                'col-start-1 row-start-1 flex min-w-0 flex-col transition-[opacity,visibility] duration-500 lg:relative lg:block lg:min-h-[clamp(560px,41vw,720px)]',
                 active ? 'visible opacity-100' : 'invisible opacity-0',
               )}
             >
@@ -151,11 +151,11 @@ export function HeroCarousel() {
                 />
               </div>
 
-              <div className="relative z-10 mx-auto w-full max-w-[88rem] px-5 pb-4 pt-6 lg:flex lg:h-full lg:min-h-[inherit] lg:items-center lg:px-10 lg:pb-20 lg:pt-0">
+              <div className="relative z-10 mx-auto w-full min-w-0 max-w-[88rem] px-5 pb-4 pt-6 lg:flex lg:h-full lg:min-h-[inherit] lg:items-center lg:px-10 lg:pb-20 lg:pt-0">
                 <div
                   key={active ? `on-${i}` : `off-${i}`}
                   className={cn(
-                    'max-w-xl lg:max-w-[34rem]',
+                    'min-w-0 max-w-xl lg:max-w-[34rem]',
                     active && 'hero-copy',
                     slide.side === 'right' && 'lg:ml-auto',
                   )}
@@ -163,7 +163,7 @@ export function HeroCarousel() {
                   <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-white/80">
                     {slide.eyebrow}
                   </p>
-                  <Heading className="display mt-4 text-[2.5rem] text-white sm:text-5xl lg:text-[4rem]">
+                  <Heading className="display mt-4 break-words text-[2.25rem] text-white sm:text-5xl lg:text-[4rem]">
                     {slide.title}
                   </Heading>
                   <p className="mt-5 max-w-lg text-base leading-relaxed text-white/90 lg:text-lg">{slide.body}</p>
