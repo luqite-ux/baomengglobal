@@ -1,0 +1,4 @@
+import { PageHero } from '@/components/site/page-hero'
+import { getApplications } from '@/lib/content'
+export const metadata={title:'Applications'}
+export default function ApplicationsPage(){return <><PageHero eyebrow="Application areas" title="Industrial parts matched to the assembly." text="Baomeng supplies fasteners and made-to-drawing machined parts for six stated industrial application areas."/><section className="mx-auto grid max-w-7xl gap-5 px-5 py-20 md:grid-cols-2 lg:grid-cols-3 lg:px-8">{getApplications().map((a,i)=><article key={a.slug} className="min-h-64 rounded-lg border bg-card p-7"><span className="font-mono text-primary">0{i+1}</span><h2 className="mt-12 text-2xl font-semibold">{a.name}</h2><p className="mt-4 leading-7 text-muted-foreground">{a.summary}</p></article>)}</section></>}
