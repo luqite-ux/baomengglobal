@@ -60,3 +60,38 @@ test('indexable pages opt into large image previews for search results', () => {
   const layout = readFileSync(new URL('../app/layout.tsx', import.meta.url), 'utf8')
   assert.match(layout, /['"]max-image-preview['"]:\s*['"]large['"]/)
 })
+
+test('product imagery preserves complete part geometry', () => {
+  for (const file of ['components/site/product-card.tsx', 'app/products/[slug]/page.tsx']) {
+    const source = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8')
+    assert.match(source, /object-contain/, `${file} must preserve the complete product`)
+    assert.doesNotMatch(source, /object-cover/, `${file} must not hard-crop product geometry`)
+  }
+})
+
+test('product category links target real sections', () => {
+  const footer = readFileSync(new URL('../components/site/site-footer.tsx', import.meta.url), 'utf8')
+  const products = readFileSync(new URL('../app/products/page.tsx', import.meta.url), 'utf8')
+  assert.match(footer, /href=\{`\/products#\$\{c\.slug\}`\}/)
+  assert.match(products, /id=\{c\.slug\}/)
+})
+
+test('mobile navigation exposes the contact action once', () => {
+  const header = readFileSync(new URL('../components/site/site-header.tsx', import.meta.url), 'utf8')
+  assert.match(header, /mobileNav\s*=\s*nav\.filter\(\(item\)\s*=>\s*item\.href\s*!==\s*['"]\/contact['"]\)/)
+  assert.match(header, /\{mobileNav\.map/)
+})
+
+test('footer does not append punctuation to the legal name', () => {
+  const footer = readFileSync(new URL('../components/site/site-footer.tsx', import.meta.url), 'utf8')
+  assert.doesNotMatch(footer, /\{site\.name\}\./)
+})
+
+test('hero transition does not crossfade overlapping copy blocks', () => {
+  const hero = readFileSync(new URL('../components/home/hero-carousel.tsx', import.meta.url), 'utf8')
+  assert.doesNotMatch(hero, /transition-\[opacity,visibility\]/)
+  assert.match(
+    hero,
+    /active\s*\?\s*['"]block['"]\s*:\s*['"]hidden['"]/,
+  )
+})

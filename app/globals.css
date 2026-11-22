@@ -116,12 +116,6 @@
   .display {
     @apply font-sans font-semibold tracking-[-0.035em] leading-[0.98] text-balance;
   }
-  .tech-grid {
-    background-image:
-      linear-gradient(to right, oklch(0.42 0.16 258 / 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.42 0.16 258 / 0.07) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
   .tech-grid-light {
     background-image:
       linear-gradient(to right, oklch(1 0 0 / 0.1) 1px, transparent 1px),

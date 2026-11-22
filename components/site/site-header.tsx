@@ -13,6 +13,7 @@ export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const nav = getMainNav()
+  const mobileNav = nav.filter((item) => item.href !== '/contact')
   const quoteLabel = getNavLabels().quote
 
   useEffect(() => {
@@ -88,7 +89,7 @@ export function SiteHeader() {
           className="fixed inset-x-0 top-[4.5rem] bottom-0 overflow-y-auto border-t border-border bg-background xl:hidden"
         >
           <ul className="mx-auto max-w-xl px-5 py-4">
-            {nav.map((item) => (
+            {mobileNav.map((item) => (
               <li key={item.href} className="border-b border-border/70">
                 <Link
                   href={item.href}

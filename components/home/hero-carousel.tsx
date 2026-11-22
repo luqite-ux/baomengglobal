@@ -122,8 +122,8 @@ export function HeroCarousel() {
               aria-label={`${i + 1} of ${slides.length}`}
               aria-hidden={!active}
               className={cn(
-                'col-start-1 row-start-1 flex min-w-0 flex-col transition-[opacity,visibility] duration-500 lg:relative lg:block lg:min-h-[clamp(560px,41vw,720px)]',
-                active ? 'visible opacity-100' : 'invisible opacity-0',
+                'col-start-1 row-start-1 min-w-0 flex-col lg:relative lg:min-h-[clamp(560px,41vw,720px)]',
+                active ? 'block' : 'hidden',
               )}
             >
               <div className="relative h-72 overflow-hidden sm:h-80 lg:absolute lg:inset-0 lg:h-auto">
@@ -132,7 +132,7 @@ export function HeroCarousel() {
                   alt={slide.alt}
                   fill
                   priority={i === 0}
-                  quality={80}
+                  quality={75}
                   sizes="100vw"
                   className={cn('object-cover', slide.cropClass, active && 'hero-depth-active')}
                 />

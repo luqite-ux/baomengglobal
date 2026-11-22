@@ -41,7 +41,7 @@ export function SiteFooter() {
             {categories.map((c) => (
               <li key={c.slug}>
                 <Link
-                  href={`/products?category=${c.slug}`}
+                  href={`/products#${c.slug}`}
                   className="inline-flex min-h-11 items-center text-sm text-foreground/80 hover:text-primary"
                 >
                   {c.name}
@@ -87,7 +87,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-[88rem] flex-col gap-2 px-5 py-5 text-xs text-muted-foreground sm:flex-row sm:justify-between lg:px-10">
           <p>
-            &copy; {new Date().getFullYear()} {site.name}.
+            &copy; {new Date().getFullYear()} {site.name}
           </p>
           <p>baomengglobal.com</p>
         </div>
