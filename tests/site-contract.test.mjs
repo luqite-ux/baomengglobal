@@ -101,3 +101,10 @@ test('hero transition does not crossfade overlapping copy blocks', () => {
     /active\s*\?\s*['"]block['"]\s*:\s*['"]hidden['"]/,
   )
 })
+
+test('couplings use the approved white-background product image', () => {
+  const products = readFileSync(new URL('../lib/products.ts', import.meta.url), 'utf8')
+  assert.equal(existsSync(new URL('../public/products/couplings-white-background.png', import.meta.url)), true)
+  assert.match(products, /image:\s*['"]\/products\/couplings-white-background\.png['"]/)
+  assert.doesNotMatch(products, /image:\s*['"]\/products\/couplings\.jpg['"]/)
+})

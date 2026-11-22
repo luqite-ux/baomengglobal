@@ -11,9 +11,12 @@ export const site = {
   emailHref: 'mailto:info@baomengglobal.com',
   address: 'Fuqiao Town, Taicang, Jiangsu, China',
   area: '2,000 m²',
+  areaSqm: 2000,
   monthlyCapacity: '1.2 million pieces',
+  monthlyCapacityMillions: 1.2,
   maxMonthlyOrder: '500,000 pieces',
   leadTime: '15–60 days',
+  leadTimeDays: [15, 60] as const,
   logo: { src: '/brand/baomeng-logo.png', width: 705, height: 620 },
 } as const
 

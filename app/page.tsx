@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { HeroCarousel } from '@/components/home/hero-carousel'
+import { CountUpMetric } from '@/components/home/count-up-metric'
 import { ProductCard } from '@/components/site/product-card'
 import { Reveal } from '@/components/site/reveal'
 import { getApplications, getProcess } from '@/lib/content'
@@ -13,8 +14,14 @@ export const metadata={alternates:{canonical:'/'}}
 
 export default function HomePage() {
   const products = getProducts(), applications = getApplications(), process = getProcess()
+  const metrics = [
+    { value: site.founded, label: 'Founded' },
+    { value: site.areaSqm, suffix: ' m²', label: 'Production area' },
+    { value: site.monthlyCapacityMillions, decimals: 1, suffix: ' million pieces', label: 'Monthly capacity' },
+    { rangeStart: site.leadTimeDays[0], value: site.leadTimeDays[1], suffix: ' days', label: 'Lead time' },
+  ]
   return <><HeroCarousel />
-    <Reveal><section className="border-b py-10"><div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-border px-5 lg:grid-cols-4 lg:px-8">{[[site.founded,'Founded'],[site.area,'Production area'],[site.monthlyCapacity,'Monthly capacity'],[site.leadTime,'Lead time']].map(([value,label])=><div key={label} className="bg-background p-6"><strong className="block text-2xl text-primary lg:text-3xl">{value}</strong><span className="mt-2 block text-sm text-muted-foreground">{label}</span></div>)}</div></section></Reveal>
+    <Reveal><section className="border-b py-10"><div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-border px-5 lg:grid-cols-4 lg:px-8">{metrics.map(metric=><div key={metric.label} className="bg-background p-6"><CountUpMetric {...metric}/><span className="mt-2 block text-sm text-muted-foreground">{metric.label}</span></div>)}</div></section></Reveal>
     <Reveal><section className="py-20 lg:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><p className="eyebrow">Core products</p><div className="mt-4 flex flex-col justify-between gap-6 lg:flex-row lg:items-end"><h2 className="display max-w-3xl text-4xl lg:text-6xl">Fasteners and machined parts built from your specification.</h2><Link href="/products" className="inline-flex items-center gap-2 font-medium text-primary">Explore all products <ArrowRight className="size-4" /></Link></div><div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{products.map(p=><ProductCard key={p.slug} product={p}/>)}</div></div></section></Reveal>
     <Reveal><section className="bg-brand-deep py-20 text-white lg:py-28"><div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1fr_1.2fr] lg:px-8"><div><p className="font-mono text-xs uppercase tracking-[.18em] text-blue-200">Manufacturing scope</p><h2 className="display mt-5 text-4xl lg:text-6xl">From drawing review to repeat production.</h2><p className="mt-6 max-w-xl leading-8 text-blue-100">Two product families, six core product lines and a clear RFQ process for custom dimensions, materials and finishes.</p></div><div className="grid gap-4 sm:grid-cols-2">{[['01','Drawing-led','Dimensions and tolerances reviewed before quotation.'],['02','Flexible production','Fastener forming and precision machining in one supplier scope.'],['03','Capacity','Stated monthly capacity of 1.2 million pieces.'],['04','Factory since 2006','Operating from Fuqiao Town, Taicang.']].map(([n,title,text])=><div key={n} className="rounded-lg border border-white/20 bg-white/10 p-6"><span className="font-mono text-blue-200">{n}</span><h3 className="mt-3 font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-blue-100">{text}</p></div>)}</div></div></section></Reveal>
     <Reveal><section className="py-20 lg:py-28"><div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1fr_1.1fr] lg:px-8"><div className="relative min-h-96 overflow-hidden rounded-lg"><Image src={media.factoryWorkshop} alt="Baomeng factory workshop" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw"/></div><div className="self-center"><p className="eyebrow">Applications</p><h2 className="display mt-5 text-4xl lg:text-6xl">Parts for six industrial application areas.</h2><div className="mt-8 grid gap-3 sm:grid-cols-2">{applications.map((a,i)=><div key={a.slug} className="rounded-md border p-5"><span className="font-mono text-xs text-primary">0{i+1}</span><h3 className="mt-2 font-semibold">{a.name}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{a.summary}</p></div>)}</div></div></div></section></Reveal>

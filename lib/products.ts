@@ -163,8 +163,8 @@ const products: LocalizedContent<Product[]> = {
       summary: 'Couplings and sleeves with keyways and claw profiles machined to your drawing.',
       description:
         'Couplings, jaw profiles and keyed sleeves machined from your drawing or sample. Bore, keyway and profile details are confirmed against your specification before production.',
-      image: '/products/couplings.jpg',
-      imageAlt: 'Black keyed sleeves surrounding a polished steel jaw coupling',
+      image: '/products/couplings-white-background.png',
+      imageAlt: 'Precision-machined silver jaw coupling isolated on a white background',
       applications: ['machinery-equipment', 'petroleum-chemical', 'marine'],
       specs: [
         { label: 'Type', value: 'Precision-machined couplings' },
