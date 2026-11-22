@@ -61,6 +61,12 @@ test('indexable pages opt into large image previews for search results', () => {
   assert.match(layout, /['"]max-image-preview['"]:\s*['"]large['"]/)
 })
 
+test('legacy favicon requests resolve to the adopted brand icon', () => {
+  const config = readFileSync(new URL('../next.config.mjs', import.meta.url), 'utf8')
+  assert.match(config, /source:\s*['"]\/favicon\.ico['"]/)
+  assert.match(config, /destination:\s*['"]\/icon\.svg['"]/)
+})
+
 test('product imagery preserves complete part geometry', () => {
   for (const file of ['components/site/product-card.tsx', 'app/products/[slug]/page.tsx']) {
     const source = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8')
