@@ -3,11 +3,12 @@ import tseslint from 'typescript-eslint'
 import nextPlugin from '@next/eslint-plugin-next'
 
 export default [
-  { ignores: ['.next/**', 'node_modules/**', 'public/**'] },
+  { ignores: ['.next/**', 'node_modules/**', 'public/**', 'output/**', '.playwright-cli/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
     plugins: { '@next/next': nextPlugin },
+    linterOptions: { reportUnusedDisableDirectives: 'off' },
     rules: {
       'no-undef': 'off',
       '@typescript-eslint/no-unused-vars': 'off',

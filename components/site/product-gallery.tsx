@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
-export function ProductGallery({ images, alt }: { images: string[]; alt: string }) {
+export function ProductGallery({ images, alt, name }: { images: string[]; alt: string; name: string }) {
   const [active, setActive] = useState(0)
 
   return (
@@ -11,7 +11,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
       <div className="relative aspect-square overflow-hidden rounded-lg border bg-white">
         <Image
           src={images[active]}
-          alt={`${alt} — view ${active + 1}`}
+          alt={active === 0 ? `${alt} — view 1` : `${name} — view ${active + 1}`}
           fill
           className="object-contain"
           priority={active === 0}
