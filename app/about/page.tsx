@@ -57,6 +57,19 @@ export default function AboutPage() {
         </section>
       </Reveal>
       <Reveal>
+        <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8" aria-labelledby="company-gallery-heading">
+          <p className="eyebrow">Inside Baomeng</p>
+          <h2 id="company-gallery-heading" className="display mt-4 text-4xl">A closer look at our workplace.</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {media.companyGallery.map(photo => (
+              <div key={photo.src} className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image src={photo.src} alt={photo.alt} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+              </div>
+            ))}
+          </div>
+        </section>
+      </Reveal>
+      <Reveal>
         <section className="border-y bg-secondary/55">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-2 lg:px-8">
             <div>

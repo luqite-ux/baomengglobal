@@ -25,6 +25,7 @@ export type Product = {
   summary: string
   description: string
   image: string
+  images?: string[]
   imageAlt: string
   applications: ApplicationSlug[]
   specs: { label: string; value: string }[]

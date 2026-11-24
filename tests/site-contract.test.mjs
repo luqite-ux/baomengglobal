@@ -68,11 +68,13 @@ test('legacy favicon requests resolve to the adopted brand icon', () => {
 })
 
 test('product imagery preserves complete part geometry', () => {
-  for (const file of ['components/site/product-card.tsx', 'app/products/[slug]/page.tsx']) {
+  for (const file of ['components/site/product-card.tsx', 'components/site/product-gallery.tsx']) {
     const source = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8')
     assert.match(source, /object-contain/, `${file} must preserve the complete product`)
     assert.doesNotMatch(source, /object-cover/, `${file} must not hard-crop product geometry`)
   }
+  const page = readFileSync(new URL('../app/products/[slug]/page.tsx', import.meta.url), 'utf8')
+  assert.match(page, /<ProductGallery/)
 })
 
 test('product category links target real sections', () => {

@@ -42,4 +42,12 @@ export const media = {
   ],
   factoryEntrance: '/factory/factory-entrance.jpg',
   factoryWorkshop: '/factory/factory-workshop.jpg',
+  companyGallery: [
+    { src: 'https://pub-c7a22068052144a5805830c30d280128.r2.dev/tenants/baomengglobal/company/02d2a1de8f404704c21b869a.jpg', alt: 'Baomeng office work area' },
+    { src: 'https://pub-c7a22068052144a5805830c30d280128.r2.dev/tenants/baomengglobal/company/1ed014e23eacae5e0809423c.jpg', alt: 'CNC machining area at Baomeng' },
+    { src: 'https://pub-c7a22068052144a5805830c30d280128.r2.dev/tenants/baomengglobal/company/d4fd6af4a7a1cdb653ec5cc4.jpg', alt: 'Metal forming workshop at Baomeng' },
+    { src: 'https://pub-c7a22068052144a5805830c30d280128.r2.dev/tenants/baomengglobal/company/61897464836dd0dd67400b0d.jpg', alt: 'Production equipment in Baomeng workshop' },
+    { src: 'https://pub-c7a22068052144a5805830c30d280128.r2.dev/tenants/baomengglobal/company/b666a9860f55a965224963ad.jpg', alt: 'Operator at metal forming equipment' },
+    { src: 'https://pub-c7a22068052144a5805830c30d280128.r2.dev/tenants/baomengglobal/company/27b1ed7de354072f294cc8cc.jpg', alt: 'Metal cutting and material storage area' },
+  ],
 } as const

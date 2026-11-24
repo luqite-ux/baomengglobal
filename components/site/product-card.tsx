@@ -9,12 +9,12 @@ export function ProductCard({ product }: { product: Product }) {
       href={`/products/${product.slug}`}
       className="group flex h-full flex-col overflow-hidden rounded-lg border bg-card transition hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="relative aspect-[4/3] bg-white p-4">
+      <div className="relative aspect-square bg-white">
         <Image
           src={product.image}
           alt={product.imageAlt}
           fill
-          className="object-contain p-4"
+          className="object-contain"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
