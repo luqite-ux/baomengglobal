@@ -133,6 +133,7 @@ export function HeroCarousel() {
                   fill
                   priority={i === 0}
                   quality={75}
+                  unoptimized={i === 1}
                   sizes="100vw"
                   className={cn('object-cover', slide.cropClass, active && 'hero-depth-active')}
                 />
