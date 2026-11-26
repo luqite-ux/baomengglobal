@@ -77,6 +77,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <SiteFooter />
         {process.env.VERCEL && <Analytics />}
+        <script
+          async
+          src={`https://admin.globle-trade.com/api/public/analytics.js?tenantId=${encodeURIComponent(process.env.NEXT_PUBLIC_TENANT_ID || "1dab4e8e-e541-4441-9f04-c20cb7db4e82")}`}
+        />
       </body>
     </html>
   )
